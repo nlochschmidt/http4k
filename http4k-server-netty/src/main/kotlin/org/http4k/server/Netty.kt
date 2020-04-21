@@ -25,7 +25,7 @@ import io.netty.handler.codec.http.HttpUtil
 import io.netty.handler.codec.http.HttpVersion.HTTP_1_1
 import org.http4k.core.Body
 import org.http4k.core.HttpHandler
-import org.http4k.core.Method.Companion.valueOf
+import org.http4k.core.Method
 import org.http4k.core.Request
 import org.http4k.core.Response
 import org.http4k.core.Status.Companion.CONTINUE
@@ -59,7 +59,7 @@ class Http4kChannelHandler(handler: HttpHandler) : SimpleChannelInboundHandler<F
         }
 
     private fun FullHttpRequest.asRequest(): Request =
-        Request(valueOf(method().name()), Uri.of(uri()))
+        Request(Method(method().name()), Uri.of(uri()))
             .headers(headers().map { it.key to it.value })
             .body(Body(ByteBufInputStream(content()), headers()["Content-Length"].safeLong()))
 }
