@@ -120,7 +120,7 @@ object ChaosTriggers {
             val queriesMatchers = queries?.map { hasQuery(it.key, it.value) } ?: emptyList()
             val pathMatchers = path?.let { listOf(hasUri(hasUriPath(it))) } ?: emptyList()
             val bodyMatchers = body?.let { listOf(hasBody(it)) } ?: emptyList()
-            val methodMatchers = method?.let { listOf(hasMethod(Method.valueOf(it.toUpperCase()))) } ?: emptyList()
+            val methodMatchers = method?.let { listOf(hasMethod(Method(it.toUpperCase()))) } ?: emptyList()
             val all = methodMatchers + pathMatchers + queriesMatchers + headerMatchers + bodyMatchers
             val matcher = if (all.isEmpty()) anything else all.reduce { acc, next -> acc and next }
 

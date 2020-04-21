@@ -42,7 +42,7 @@ internal fun Response.asApiGateway() = APIGatewayProxyResponseEvent().also {
 }
 
 internal fun APIGatewayProxyRequestEvent.asHttp4k() = (headers ?: emptyMap()).toList().fold(
-    Request(Method.valueOf(httpMethod), uri())
+    Request(Method(httpMethod), uri())
         .body(body?.let(::MemoryBody) ?: Body.EMPTY)) { memo, (first, second) ->
     memo.header(first, second)
 }

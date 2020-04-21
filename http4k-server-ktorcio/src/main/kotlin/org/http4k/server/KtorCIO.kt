@@ -47,7 +47,7 @@ data class KtorCIO(val port: Int = 8000) : ServerConfig {
     }
 }
 
-fun ApplicationRequest.asHttp4k() = Request(Method.valueOf(httpMethod.value), uri)
+fun ApplicationRequest.asHttp4k() = Request(Method(httpMethod.value), uri)
     .headers(headers.toHttp4kHeaders())
     .body(receiveChannel().toInputStream(), header("Content-Length")?.toLong())
 

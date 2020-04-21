@@ -31,7 +31,7 @@ class HttpUndertowHandler(handler: HttpHandler) : io.undertow.server.HttpHandler
     }
 
     private fun HttpServerExchange.asRequest(): Request =
-        Request(Method.valueOf(requestMethod.toString()), Uri.of("$relativePath?$queryString"))
+        Request(Method(requestMethod.toString()), Uri.of("$relativePath?$queryString"))
             .headers(requestHeaders
                 .flatMap { header -> header.map { header.headerName.toString() to it } })
             .body(inputStream, requestHeaders.getFirst("Content-Length").safeLong())

@@ -34,7 +34,7 @@ class Http4kRequestHandler(handler: HttpHandler) : HttpRequestHandler {
     }
 
     private fun ApacheRequest.asHttp4kRequest(): Request =
-        Request(Method.valueOf(requestLine.method), requestLine.uri)
+        Request(Method(requestLine.method), requestLine.uri)
             .headers(allHeaders.toHttp4kHeaders()).let {
                 when (this) {
                     is HttpEntityEnclosingRequest -> it.body(entity.content, getFirstHeader("Content-Length")?.value.safeLong())
