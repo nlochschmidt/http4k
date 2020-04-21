@@ -3,7 +3,7 @@ package tutorials.tdding_http4k._1
 
 import com.natpryce.hamkrest.assertion.assertThat
 import org.http4k.client.OkHttp
-import org.http4k.core.Method.GET
+import org.http4k.core.Method.Companion.GET
 import org.http4k.core.Request
 import org.http4k.core.Status.Companion.OK
 import org.http4k.hamkrest.hasStatus

@@ -9,7 +9,7 @@ import com.natpryce.hamkrest.equalTo
 import org.apache.http.impl.io.EmptyInputStream
 import org.http4k.core.ContentType.Companion.TEXT_PLAIN
 import org.http4k.core.MemoryRequest
-import org.http4k.core.Method.GET
+import org.http4k.core.Method.Companion.GET
 import org.http4k.core.Request
 import org.http4k.core.Response
 import org.http4k.core.Status.Companion.NOT_FOUND

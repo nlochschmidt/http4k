@@ -3,8 +3,8 @@ package guide.modules.aws
 import org.http4k.aws.AwsCredentialScope
 import org.http4k.aws.AwsCredentials
 import org.http4k.client.ApacheClient
-import org.http4k.core.Method.GET
-import org.http4k.core.Method.PUT
+import org.http4k.core.Method.Companion.GET
+import org.http4k.core.Method.Companion.PUT
 import org.http4k.core.Request
 import org.http4k.core.Uri
 import org.http4k.core.then

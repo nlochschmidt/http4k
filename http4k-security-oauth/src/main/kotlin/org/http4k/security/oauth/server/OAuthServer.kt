@@ -1,7 +1,7 @@
 package org.http4k.security.oauth.server
 
 import org.http4k.core.Body
-import org.http4k.core.Method.POST
+import org.http4k.core.Method.Companion.POST
 import org.http4k.core.Request
 import org.http4k.core.then
 import org.http4k.format.AutoMarshallingJson

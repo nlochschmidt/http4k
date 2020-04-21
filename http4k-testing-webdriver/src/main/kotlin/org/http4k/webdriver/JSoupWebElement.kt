@@ -2,7 +2,8 @@ package org.http4k.webdriver
 
 import org.http4k.core.Body
 import org.http4k.core.Method
-import org.http4k.core.Method.*
+import org.http4k.core.Method.Companion.GET
+import org.http4k.core.Method.Companion.POST
 import org.http4k.core.Request
 import org.http4k.core.Uri
 import org.http4k.core.with
@@ -44,7 +45,7 @@ data class JSoupWebElement(private val navigate: Navigate, private val getURL: G
 
     override fun submit() {
         current("form")?.let {
-            val method = it.element.attr("method")?.let(String::toUpperCase)?.let(Method::valueOf) ?: POST
+            val method = it.element.attr("method")?.let(String::toUpperCase)?.let(::Method) ?: POST
             val inputs = it
                 .findElements(By.tagName("input"))
                 .filter { it.getAttribute("name") != "" }

@@ -5,7 +5,7 @@ import org.http4k.contract.PreFlightExtraction.Companion
 import org.http4k.core.Filter
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method
-import org.http4k.core.Method.OPTIONS
+import org.http4k.core.Method.Companion.OPTIONS
 import org.http4k.core.NoOp
 import org.http4k.core.Request
 import org.http4k.core.Response

@@ -42,10 +42,6 @@ private fun parseRequestLine(line: String): Pair<Method, Uri> =
     with(line.split(" ")) {
         when {
             size < 2 -> throw IllegalArgumentException("Invalid request line: $line")
-            else -> try {
-                Method.valueOf(this[0]) to Uri.of(this[1])
-            } catch (e: Exception) {
-                throw IllegalArgumentException("Invalid method: ${this[0]}")
-            }
+            else -> Method(this[0]) to Uri.of(this[1])
         }
     }

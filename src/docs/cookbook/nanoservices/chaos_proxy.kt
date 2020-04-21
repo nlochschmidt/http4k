@@ -4,8 +4,8 @@ import org.http4k.chaos.ChaosBehaviours.Latency
 import org.http4k.chaos.ChaosEngine
 import org.http4k.chaos.withChaosApi
 import org.http4k.client.JavaHttpClient
-import org.http4k.core.Method.GET
-import org.http4k.core.Method.POST
+import org.http4k.core.Method.Companion.GET
+import org.http4k.core.Method.Companion.POST
 import org.http4k.core.Request
 import org.http4k.core.then
 import org.http4k.filter.RequestFilters.ProxyHost

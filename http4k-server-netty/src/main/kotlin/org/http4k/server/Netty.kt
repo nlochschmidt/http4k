@@ -25,7 +25,7 @@ import io.netty.handler.codec.http.HttpUtil
 import io.netty.handler.codec.http.HttpVersion.HTTP_1_1
 import org.http4k.core.Body
 import org.http4k.core.HttpHandler
-import org.http4k.core.Method.valueOf
+import org.http4k.core.Method.Companion.valueOf
 import org.http4k.core.Request
 import org.http4k.core.Response
 import org.http4k.core.Status.Companion.CONTINUE

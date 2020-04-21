@@ -2,7 +2,7 @@ package guide.modules.resilience
 
 import io.github.resilience4j.retry.Retry
 import io.github.resilience4j.retry.RetryConfig
-import org.http4k.core.Method.GET
+import org.http4k.core.Method.Companion.GET
 import org.http4k.core.Request
 import org.http4k.core.Response
 import org.http4k.core.Status.Companion.INTERNAL_SERVER_ERROR

@@ -8,11 +8,11 @@ import org.http4k.aws.AwsRequestDate
 import org.http4k.aws.AwsSignatureV4Signer
 import org.http4k.core.Filter
 import org.http4k.core.Method
-import org.http4k.core.Method.DELETE
-import org.http4k.core.Method.GET
-import org.http4k.core.Method.HEAD
-import org.http4k.core.Method.OPTIONS
-import org.http4k.core.Method.TRACE
+import org.http4k.core.Method.Companion.DELETE
+import org.http4k.core.Method.Companion.GET
+import org.http4k.core.Method.Companion.HEAD
+import org.http4k.core.Method.Companion.OPTIONS
+import org.http4k.core.Method.Companion.TRACE
 import org.http4k.core.Request
 import java.time.Clock
 

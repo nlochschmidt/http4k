@@ -8,7 +8,7 @@ import org.http4k.core.ContentType
 import org.http4k.core.ContentType.Companion
 import org.http4k.core.ContentType.Companion.MultipartFormWithBoundary
 import org.http4k.core.ContentType.Companion.MultipartMixedWithBoundary
-import org.http4k.core.Method.GET
+import org.http4k.core.Method.Companion.GET
 import org.http4k.core.Request
 import org.http4k.core.with
 import org.http4k.lens.Validator.Feedback

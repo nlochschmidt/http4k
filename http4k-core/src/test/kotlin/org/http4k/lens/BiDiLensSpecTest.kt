@@ -4,7 +4,6 @@ import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.equalTo
 import com.natpryce.hamkrest.throws
 import org.http4k.base64Encode
-import org.http4k.core.Method
 import org.http4k.core.Uri
 import org.http4k.core.with
 import org.http4k.lens.BiDiLensContract.checkContract
@@ -113,12 +112,12 @@ class BiDiLensSpecTest {
     @Test
     fun yearMonth() = checkContract(spec.yearMonth(), YearMonth.of(2000, 2), "2000-02", "", "invalid", "o", "o2000-02", "o2000-022000-02")
 
+
     @Test
     fun enum() {
-        fun BiDiLensSpec<String, String>.enum() = map(StringBiDiMappings.enum<Method>())
-        checkContract(spec.enum(), Method.DELETE, "DELETE", "", "invalid", "o", "oDELETE", "oDELETEDELETE")
+        fun BiDiLensSpec<String, String>.enum() = map(StringBiDiMappings.enum<Foo>())
+        checkContract(spec.enum(), Foo.Bar, "Bar", "", "invalid", "o", "oBar", "oBarBar")
     }
-
 
     @Test
     fun bytes() {

@@ -25,9 +25,9 @@ import org.http4k.core.ContentType.Companion.APPLICATION_JSON
 import org.http4k.core.ContentType.Companion.MULTIPART_FORM_DATA
 import org.http4k.core.HttpMessage
 import org.http4k.core.Method
-import org.http4k.core.Method.DELETE
-import org.http4k.core.Method.GET
-import org.http4k.core.Method.HEAD
+import org.http4k.core.Method.Companion.DELETE
+import org.http4k.core.Method.Companion.GET
+import org.http4k.core.Method.Companion.HEAD
 import org.http4k.core.Response
 import org.http4k.core.Status.Companion.OK
 import org.http4k.core.with

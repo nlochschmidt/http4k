@@ -6,9 +6,9 @@ import com.natpryce.hamkrest.equalTo
 import org.http4k.client.ApacheClient
 import org.http4k.core.BodyMode
 import org.http4k.core.HttpHandler
-import org.http4k.core.Method.DELETE
-import org.http4k.core.Method.GET
-import org.http4k.core.Method.PUT
+import org.http4k.core.Method.Companion.DELETE
+import org.http4k.core.Method.Companion.GET
+import org.http4k.core.Method.Companion.PUT
 import org.http4k.core.Request
 import org.http4k.core.Status.Companion.NO_CONTENT
 import org.http4k.core.Status.Companion.OK

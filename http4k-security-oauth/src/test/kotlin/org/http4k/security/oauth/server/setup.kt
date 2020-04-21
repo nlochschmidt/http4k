@@ -3,8 +3,8 @@ package org.http4k.security.oauth.server
 import org.http4k.core.Credentials
 import org.http4k.core.Filter
 import org.http4k.core.HttpHandler
-import org.http4k.core.Method.GET
-import org.http4k.core.Method.POST
+import org.http4k.core.Method.Companion.GET
+import org.http4k.core.Method.Companion.POST
 import org.http4k.core.NoOp
 import org.http4k.core.Request
 import org.http4k.core.Response

@@ -2,8 +2,8 @@ package org.http4k.core
 
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.equalTo
-import org.http4k.core.Method.GET
-import org.http4k.core.Method.POST
+import org.http4k.core.Method.Companion.GET
+import org.http4k.core.Method.Companion.POST
 import org.http4k.core.Status.Companion.OK
 import org.http4k.core.body.form
 import org.http4k.core.body.toBody

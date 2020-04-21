@@ -1,7 +1,7 @@
 package cookbook.principal_lookup
 
 import org.http4k.core.Credentials
-import org.http4k.core.Method.GET
+import org.http4k.core.Method.Companion.GET
 import org.http4k.core.Request
 import org.http4k.core.RequestContexts
 import org.http4k.core.Response

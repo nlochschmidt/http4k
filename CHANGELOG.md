@@ -4,6 +4,7 @@ This list is not currently intended to be all-encompassing - it will document ma
 changes with their rationale when appropriate:
 
 ### v3.245.0 (uncut)
+- [http4k-core] [Breaking] Change Method to be a class instead of an enum. This will have an effect on ALL imports of `Method.*`, which will have to be replaced with `Method.Companion.*`.
 - [http4k-core] Factored out `Http4kServletAdapter` to allow usage of the Servlet API outside of creating a Servlet instance.
 
 ### v3.244.0

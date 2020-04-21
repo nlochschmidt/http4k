@@ -5,8 +5,7 @@ import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.equalTo
 import com.natpryce.hamkrest.present
 import com.natpryce.hamkrest.throws
-import org.http4k.core.Method
-import org.http4k.core.Method.GET
+import org.http4k.core.Method.Companion.GET
 import org.http4k.core.Request
 import org.http4k.core.Uri.Companion.of
 import org.http4k.core.query
@@ -138,11 +137,11 @@ class QueryTest {
 
     @Test
     fun `enum`() {
-        val requiredLens = Query.enum<Method>().required("method")
-        assertThat(requiredLens(Request(GET, "/?method=DELETE")), equalTo(Method.DELETE))
+        val requiredLens = Query.enum<Foo>().required("foo")
+        assertThat(requiredLens(Request(GET, "/?foo=Bar")), equalTo(Foo.Bar))
 
-        val optionalLens = Query.enum<Method>().optional("method")
-        assertThat(optionalLens(Request(GET, "/?method=DELETE")), equalTo(Method.DELETE))
+        val optionalLens = Query.enum<Foo>().optional("foo")
+        assertThat(optionalLens(Request(GET, "/?foo=Bar")), equalTo(Foo.Bar))
         assertThat(optionalLens(Request(GET, "/")), absent())
     }
 }

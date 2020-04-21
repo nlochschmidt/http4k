@@ -156,8 +156,6 @@ interface HttpMessage : Closeable {
     override fun close() = body.close()
 }
 
-enum class Method { GET, POST, PUT, DELETE, OPTIONS, TRACE, PATCH, PURGE, HEAD }
-
 interface Request : HttpMessage {
     val method: Method
     val uri: Uri

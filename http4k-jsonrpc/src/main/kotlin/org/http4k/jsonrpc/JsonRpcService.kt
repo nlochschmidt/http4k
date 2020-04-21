@@ -3,7 +3,7 @@ package org.http4k.jsonrpc
 import org.http4k.core.ContentType.Companion.APPLICATION_JSON
 import org.http4k.core.Filter
 import org.http4k.core.HttpHandler
-import org.http4k.core.Method.POST
+import org.http4k.core.Method.Companion.POST
 import org.http4k.core.Request
 import org.http4k.core.Response
 import org.http4k.core.Status.Companion.METHOD_NOT_ALLOWED

@@ -2,7 +2,7 @@ package org.http4k.client
 
 import org.http4k.core.Body
 import org.http4k.core.Headers
-import org.http4k.core.Method.GET
+import org.http4k.core.Method.Companion.GET
 import org.http4k.core.Request
 import org.http4k.core.StreamBody
 import org.http4k.core.Uri

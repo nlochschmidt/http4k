@@ -3,9 +3,15 @@ package org.http4k.routing
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.equalTo
 import org.http4k.core.Filter
-import org.http4k.core.Method
-import org.http4k.core.Method.GET
-import org.http4k.core.Method.POST
+import org.http4k.core.Method.Companion.DELETE
+import org.http4k.core.Method.Companion.GET
+import org.http4k.core.Method.Companion.HEAD
+import org.http4k.core.Method.Companion.OPTIONS
+import org.http4k.core.Method.Companion.PATCH
+import org.http4k.core.Method.Companion.POST
+import org.http4k.core.Method.Companion.PURGE
+import org.http4k.core.Method.Companion.PUT
+import org.http4k.core.Method.Companion.TRACE
 import org.http4k.core.Request
 import org.http4k.core.Response
 import org.http4k.core.Status.Companion.CREATED
@@ -84,7 +90,7 @@ class RoutingTest {
             "/a/{route}" bind { _: Request -> Response(OK).body("matched") }
         )
 
-        Method.values().forEach {
+        arrayOf(GET, POST, PUT, DELETE, OPTIONS, TRACE, PATCH, PURGE, HEAD).forEach {
             assertThat(routes(Request(it, "/a/something")).bodyString(), equalTo("matched"))
         }
     }

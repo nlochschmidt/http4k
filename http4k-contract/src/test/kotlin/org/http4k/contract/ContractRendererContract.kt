@@ -15,9 +15,9 @@ import org.http4k.core.ContentType.Companion.APPLICATION_XML
 import org.http4k.core.ContentType.Companion.OCTET_STREAM
 import org.http4k.core.ContentType.Companion.TEXT_PLAIN
 import org.http4k.core.Credentials
-import org.http4k.core.Method.GET
-import org.http4k.core.Method.POST
-import org.http4k.core.Method.PUT
+import org.http4k.core.Method.Companion.GET
+import org.http4k.core.Method.Companion.POST
+import org.http4k.core.Method.Companion.PUT
 import org.http4k.core.Request
 import org.http4k.core.Response
 import org.http4k.core.Status.Companion.CREATED

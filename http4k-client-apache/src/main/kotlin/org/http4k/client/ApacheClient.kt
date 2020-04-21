@@ -23,11 +23,11 @@ import org.http4k.core.BodyMode.Memory
 import org.http4k.core.BodyMode.Stream
 import org.http4k.core.Headers
 import org.http4k.core.HttpHandler
-import org.http4k.core.Method.DELETE
-import org.http4k.core.Method.GET
-import org.http4k.core.Method.HEAD
-import org.http4k.core.Method.OPTIONS
-import org.http4k.core.Method.TRACE
+import org.http4k.core.Method.Companion.DELETE
+import org.http4k.core.Method.Companion.GET
+import org.http4k.core.Method.Companion.HEAD
+import org.http4k.core.Method.Companion.OPTIONS
+import org.http4k.core.Method.Companion.TRACE
 import org.http4k.core.Request
 import org.http4k.core.Response
 import org.http4k.core.Status

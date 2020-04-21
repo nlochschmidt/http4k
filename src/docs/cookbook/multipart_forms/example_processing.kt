@@ -3,7 +3,7 @@ package cookbook.multipart_forms
 import org.http4k.client.ApacheClient
 import org.http4k.core.Body
 import org.http4k.core.ContentType
-import org.http4k.core.Method.POST
+import org.http4k.core.Method.Companion.POST
 import org.http4k.core.MultipartEntity
 import org.http4k.core.Request
 import org.http4k.core.Response

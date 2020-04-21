@@ -3,7 +3,7 @@ package org.http4k.filter
 import org.http4k.core.Filter
 import org.http4k.core.Headers
 import org.http4k.core.HttpHandler
-import org.http4k.core.Method.GET
+import org.http4k.core.Method.Companion.GET
 import java.security.MessageDigest
 import java.time.Clock
 import java.time.Duration

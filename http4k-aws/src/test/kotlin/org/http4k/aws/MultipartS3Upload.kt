@@ -3,9 +3,9 @@ package org.http4k.aws
 import org.http4k.core.Body
 import org.http4k.core.BodyMode
 import org.http4k.core.Filter
-import org.http4k.core.Method.DELETE
-import org.http4k.core.Method.POST
-import org.http4k.core.Method.PUT
+import org.http4k.core.Method.Companion.DELETE
+import org.http4k.core.Method.Companion.POST
+import org.http4k.core.Method.Companion.PUT
 import org.http4k.core.Request
 import org.http4k.core.Response
 import org.http4k.core.Status.Companion.OK

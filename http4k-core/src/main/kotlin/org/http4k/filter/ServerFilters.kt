@@ -6,7 +6,15 @@ import org.http4k.core.Credentials
 import org.http4k.core.Filter
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method
-import org.http4k.core.Method.OPTIONS
+import org.http4k.core.Method.Companion.DELETE
+import org.http4k.core.Method.Companion.GET
+import org.http4k.core.Method.Companion.HEAD
+import org.http4k.core.Method.Companion.OPTIONS
+import org.http4k.core.Method.Companion.PATCH
+import org.http4k.core.Method.Companion.POST
+import org.http4k.core.Method.Companion.PURGE
+import org.http4k.core.Method.Companion.PUT
+import org.http4k.core.Method.Companion.TRACE
 import org.http4k.core.Request
 import org.http4k.core.RequestContext
 import org.http4k.core.Response
@@ -35,7 +43,7 @@ data class CorsPolicy(val origins: List<String>,
                       val methods: List<Method>,
                       val credentials: Boolean = false) {
     companion object {
-        val UnsafeGlobalPermissive = CorsPolicy(listOf("*"), listOf("content-type"), Method.values().toList(), true)
+        val UnsafeGlobalPermissive = CorsPolicy(listOf("*"), listOf("content-type"), arrayOf(GET, POST, PUT, DELETE, OPTIONS, TRACE, PATCH, PURGE, HEAD).toList(), true)
     }
 }
 

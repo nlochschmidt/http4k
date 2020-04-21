@@ -43,7 +43,7 @@ private fun HttpExchange.populate(httpResponse: Response) {
 }
 
 private fun HttpExchange.toRequest(): Request =
-    Request(Method.valueOf(requestMethod),
+    Request(Method(requestMethod),
         requestURI.rawQuery?.let { Uri.of(requestURI.rawPath).query(requestURI.rawQuery) }
             ?: Uri.of(requestURI.rawPath))
         .body(requestBody, requestHeaders.getFirst("Content-Length").safeLong())

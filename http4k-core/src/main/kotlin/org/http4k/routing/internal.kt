@@ -6,7 +6,7 @@ import org.http4k.core.ContentType.Companion.OCTET_STREAM
 import org.http4k.core.Filter
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method
-import org.http4k.core.Method.GET
+import org.http4k.core.Method.Companion.GET
 import org.http4k.core.MimeTypes
 import org.http4k.core.NoOp
 import org.http4k.core.Request
