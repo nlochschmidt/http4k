@@ -10,9 +10,14 @@ import org.http4k.core.RequestSource
 import org.http4k.core.Response
 import org.http4k.core.Uri
 import org.http4k.core.safeLong
-import java.lang.Runtime.getRuntime
+import org.http4k.server.ServerConfig.StopMode
+import org.http4k.server.ServerConfig.StopMode.Delayed
+import org.http4k.server.ServerConfig.StopMode.Graceful
+import org.http4k.server.ServerConfig.StopMode.Immediate
+import org.http4k.server.ServerConfig.UnsupportedStopMode
 import java.net.InetSocketAddress
 import java.util.concurrent.Executors.newWorkStealingPool
+import java.util.concurrent.TimeUnit.MILLISECONDS
 
 class HttpExchangeHandler(private val handler: HttpHandler): SunHttpHandler {
     private fun HttpExchange.populate(httpResponse: Response) {
@@ -46,17 +51,30 @@ class HttpExchangeHandler(private val handler: HttpHandler): SunHttpHandler {
     }
 }
 
-data class SunHttp(val port: Int = 8000) : ServerConfig {
+data class SunHttp(val port: Int = 8000, override val stopMode: StopMode = Immediate) : ServerConfig {
+    constructor(port: Int = 8000): this(port, Immediate)
+
+    init {
+        if (stopMode is Delayed) throw UnsupportedStopMode(stopMode)
+    }
+
     override fun toServer(httpHandler: HttpHandler): Http4kServer = object : Http4kServer {
         override fun port(): Int = if (port > 0) port else server.address.port
 
+        private val executor = newWorkStealingPool()
         private val server = HttpServer.create(InetSocketAddress(port), 1000)
         override fun start(): Http4kServer = apply {
             server.createContext("/", HttpExchangeHandler(httpHandler))
-            server.executor = newWorkStealingPool()
+            server.executor = executor
             server.start()
         }
 
-        override fun stop() = apply { server.stop(0) }
+        override fun stop() = apply {
+            if (stopMode is Graceful) {
+                executor.shutdown()
+                executor.awaitTermination(stopMode.timeout.toMillis(), MILLISECONDS)
+            }
+            server.stop(0)
+        }
     }
 }
